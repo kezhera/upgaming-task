@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.section`
     width: 100%;
+    min-height: 562px;
     max-width: ${ props => props.theme.containers.lg};
     margin: auto;
     margin-bottom: 20px;

@@ -35,7 +35,7 @@ const Banner = ({bannerImgs}) => {
         infinite: true,
         speed: 500,
         slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     };
@@ -48,7 +48,7 @@ const Banner = ({bannerImgs}) => {
                                 {
                 bannerImgs?.slice(0, 20).map( ( slot , key ) => {
                     return (
-                            <Card key={key} text={false} size={'lg'} banner={slot.CdnUrl}/>
+                            <Card key={key} text={false} size={'lg'} banner={slot.CdnUrl} lazyImg height={506}/>
                         )
                     })
                 }

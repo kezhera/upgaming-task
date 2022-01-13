@@ -5,6 +5,7 @@ import * as S from './styled'
 
 const Games = ( {bannerSize , showMore , slotImgs , slotName , Visible} ) => {
 
+
     return (
         <S.Wrapper>
             <S.GamesList>
@@ -22,11 +23,12 @@ const Games = ( {bannerSize , showMore , slotImgs , slotName , Visible} ) => {
 
                         return (
                             <S.GamesItem key={slot.GameTemplateId}>
-                                <Card banner={banner} size={bannerSize} cardName={slot?.Value}/>
+                                <Card banner={banner} size={bannerSize} cardName={slot?.Value} lazyImg/>
                             </S.GamesItem>
                         )
                     })
                 }
+
             </S.GamesList>
             <S.GameMore>
                 <Button className='yellow' text="Show More" onClick={showMore} />

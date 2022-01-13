@@ -1,26 +1,30 @@
 import React, { Suspense } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import DefaultLayout from 'layouts/default'
-import getRoutes from './routes'
+import { Route } from 'react-router-dom'
+import DefaultLayout from '../layouts/default'
+import Home from '../pages/Home'
+import { routesMap } from './router'
 
 const Routes = () => {
-  const routes = getRoutes()
-
+  const routes = routesMap
   return (
-    <Switch>
-        {routes.map(({ path, Component, exact, layout }, key) => {
-            const Layout = layout ? layout : DefaultLayout
+    <Suspense fallback={<div>Loading...</div>}>
+          {routes.map(({ path, component, exact, layout }, key ) => {
+            
+              const Layout = layout ? layout : DefaultLayout
+              const Component = component
 
-            return (
-            <Route exact={exact} path={path} key={key} render={(props) => (
-                <Layout>
-                    <Component {...props} />
-                </Layout>
-                )} 
-            />
-            )
-        })}
-    </Switch>
+              return (
+                <Route exact={exact} path={path} key={key} render={ () => (
+                    <Layout>
+                      <Component />
+                    </Layout>
+                  )} 
+                >
+                    
+                </Route>
+              )
+          })}
+    </Suspense>
   )
 }
 

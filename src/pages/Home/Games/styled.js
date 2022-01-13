@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
 
 export const GamesList = styled.ul`
     width: 100%;
+    min-height: 236px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

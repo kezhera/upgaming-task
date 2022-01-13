@@ -1,10 +1,9 @@
 import React, { useState , useEffect } from 'react'
-import Header from '../../components/Header'
 import * as S from './styled'
 import Tab from './Tab'
 import Games from './Games'
 import Banner from './Banner'
-
+import axios from 'axios'
 
 const Home = () => {
     const showStep = 60 ;  
@@ -12,23 +11,28 @@ const Home = () => {
     const [slotName, setSlotName] = useState([])
     const [slotImgs, setSlotImgs] = useState([])
     const [filtered, setFiltered] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        fetch('https://betwill.com/api/game/getgametemplates/1/1/1')
-        .then(response => response.json())
-        .then(
-            data => {
-                setSlotImgs(data.GameTemplateImages)
-                setSlotName(data.GameTemplateNameTranslations)
-                setFiltered(data.GameTemplateNameTranslations)
-            }
-        );
+        setLoading(true)
+        axios({
+            method: 'GET',
+            url: 'https://betwill.com/api/game/getgametemplates/1/1/1',
+        }).then( res => {  
+            console.log(res)
+            setLoading(false)
+            setSlotImgs(res.data.GameTemplateImages)
+            setSlotName(res.data.GameTemplateNameTranslations)
+            setFiltered(res.data.GameTemplateNameTranslations)
+        })
     }, [Visible])
 
     const filterArr = (e) => {
+
         setFiltered(
             slotName.filter( (slot) => slot.Value.includes( capitalize(e.target.value)) )
         )
+
     }
 
     const capitalize = (str) => {
@@ -40,9 +44,20 @@ const Home = () => {
         setVisible( Visible + showStep )
     }
 
+    // return loading 
+    // ?
+    //     <h2>Loading....</h2>
+       
+    // :
+    //     <S.Wrapper>
+    //         <Header />
+    //         <Banner bannerImgs={slotImgs} />
+    //         <Tab filterArr={filterArr} allGamesLenght={slotName.length}/>
+    //         <Games bannerSize={'sm'} showMore={showMore} slotImgs={slotImgs} slotName={filtered} Visible={Visible} />
+    //     </S.Wrapper>
+     
     return (
         <S.Wrapper>
-            <Header />
             <Banner bannerImgs={slotImgs} />
             <Tab filterArr={filterArr} allGamesLenght={slotName.length}/>
             <Games bannerSize={'sm'} showMore={showMore} slotImgs={slotImgs} slotName={filtered} Visible={Visible} />

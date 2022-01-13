@@ -3,26 +3,29 @@ import styled from "styled-components";
 
 export const CardWrapper = styled.div`
     margin-top: 15px;
+    height: auto;
     &.lg{
+        span{
+            width: 100%;
+            height: 100%;
+        }
         figure{
             width: 100%;
-            height: 212px;
         }
     }
     &.sm{
         figure{
             width: 208px;
-            height: 120px;
         }
     }
 `
 
 export const CardHead = styled.figure`
     position: relative;
+    height: auto;
     img{
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
     }
 `
 
