@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <Wrapper>
             <HeaderLeft>
-                <Logo>
+                <Logo to={'/'}>
                     <img src="./images/img/LOGO.png" alt="Betwill" />
                 </Logo>
                 <Navigation />

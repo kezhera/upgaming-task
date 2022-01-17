@@ -3,7 +3,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Wrapper } from './styled';
-import Card from '../../../components/Card';
+import Card from '../Card';
 
 function SampleNextArrow(props) {
     const { className, onClick } = props;
@@ -28,7 +28,7 @@ function SamplePrevArrow(props) {
     );
 }
 
-const Banner = ({bannerImgs}) => {
+const Banner = ({bannerImgs , height}) => {
     
     const settings = {
         dots: false,
@@ -45,10 +45,10 @@ const Banner = ({bannerImgs}) => {
             <Slider
                 {...settings}
             >
-                                {
-                bannerImgs?.slice(0, 20).map( ( slot , key ) => {
-                    return (
-                            <Card key={key} text={false} size={'lg'} banner={slot.CdnUrl} lazyImg height={506}/>
+                {
+                    bannerImgs?.slice(0, 20).map( ( slot , key ) => {
+                        return (
+                            <Card key={key} text={false} size={'lg'} banner={slot.CdnUrl} lazyImg height={height || 172 }/>
                         )
                     })
                 }

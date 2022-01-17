@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react'
 import { Route } from 'react-router-dom'
 import DefaultLayout from '../layouts/default'
-import Home from '../pages/Home'
 import { routesMap } from './router'
 
 const Routes = () => {

@@ -4,14 +4,12 @@ import styled from "styled-components";
 export const CardWrapper = styled.div`
     margin-top: 15px;
     height: auto;
-    &.lg{
-        span{
-            width: 100%;
-            height: 100%;
-        }
-        figure{
-            width: 100%;
-        }
+    span{
+        width: 100%;
+        height: 100%;
+    }
+    figure{
+        width: 100%;
     }
     &.sm{
         figure{

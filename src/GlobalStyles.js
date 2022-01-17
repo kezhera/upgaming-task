@@ -5,19 +5,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: p-reg;
     font-weight: 400;
     src: url(./font/Poppins-Regular.ttf);
-  }
-
-  
-  @font-face {
-    font-family: p-semibold;
-    font-weight: 700;
-    src: url(./font/Poppins-Bold.ttf);
+    font-display : swap;
   }
 
   @font-face {
     font-family: p-bold;
     font-weight: bold;
     src: url(./font/Poppins-Bold.ttf);
+    font-display : swap;
   }
   
   * {

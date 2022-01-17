@@ -8,7 +8,14 @@ const Navigation = () => {
             {
                 routes.map( (route , key) => {
                     return (
-                        <NavItem to={route.path} key={key}>{route.name}</NavItem>
+                        <NavItem 
+                            to={route.path} 
+                            key={key} 
+                            exact={route.exact}
+                            activeClassName="active"
+                        >
+                            {route.name} 
+                        </NavItem>
                     )
                 })
             }

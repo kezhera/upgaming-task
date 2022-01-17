@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.header`
@@ -10,7 +11,7 @@ export const Wrapper = styled.header`
     justify-content: space-between;
 ` 
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
     margin-right: 70px;
 `
 

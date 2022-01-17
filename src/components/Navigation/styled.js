@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Nav = styled.nav`
@@ -7,7 +7,7 @@ export const Nav = styled.nav`
     align-items: center;
 `
 
-export const NavItem = styled(Link)`
+export const NavItem = styled(NavLink)`
     color : #fff;
     margin-right: 45px;
     font-size: ${props => props.theme.fontSizes.xs}; 
@@ -21,7 +21,7 @@ export const NavItem = styled(Link)`
     &:last-child{
         margin-right: 0;
     }
-    &:hover{
+    &:hover , &.active{
         &::after{
             background-color: ${props => props.theme.colors.background[100]};
         }
