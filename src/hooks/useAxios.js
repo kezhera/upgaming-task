@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+axios.defaults.baseURL = 'http://192.168.251.127:7444/test/getgames';
 
 const useAxios = ( url ) => {
     const [response, setResponse] = useState(null);
@@ -24,7 +24,7 @@ const useAxios = ( url ) => {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    } , [url]);
 
     return { response , error , loading };
 };

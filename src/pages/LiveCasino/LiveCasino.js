@@ -13,7 +13,7 @@ const LiveCasino = () => {
     const [slotImgs, setSlotImgs] = useState([])
     const [filtered, setFiltered] = useState([])
 
-    const {response,error,loading} = useAxios('https://betwill.com/api/game/getgametemplates/1/1/1')
+    const {response ,loading} = useAxios('https://betwill.com/api/game/getgametemplates/1/1/1')
 
     useEffect(() => {
         if( response ){

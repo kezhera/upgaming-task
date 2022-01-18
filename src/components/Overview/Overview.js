@@ -1,12 +1,12 @@
 import React from 'react'
 import * as S from './Styled'
-import SVG from 'react-inlinesvg'
+
 const Overview = () => {
     return (
         <S.Wrapper>
             <S.Head>
                 <S.HeadGroup>
-                    <S.Live>Live</S.Live>
+                    <S.Live to="/">Live</S.Live>
                     <S.PageLink to="/">  
                         <span className="text">106 events</span>
                     </S.PageLink>

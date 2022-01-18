@@ -11,7 +11,7 @@ export const Head = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
-    max-width: 825px;
+    max-width: 1233px;
     margin: auto;
 `
 
@@ -41,11 +41,13 @@ export const Row = styled.div`
     display: flex;
     justify-content: space-between;
     padding-right: 50px;
-    max-width: 825px;
+    max-width: 1233px;
     margin: auto;
     height: ${ props => props.height ? `${props.height}px` : 'auto' };
     &.match{
         .first{
+            border-right: 1px solid #fff;
+            padding-right: 4px;
             span{
                 color: #fff;
             }
@@ -59,10 +61,10 @@ export const Row = styled.div`
 export const Grid = styled.div`
     width: ${ props => `${props.width*4}rem` };
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     color: #fff;
-    padding: 5px ;
+    margin: 8px 0px;
     p , .match-name {
         flex: 1;
         padding-right: 8px;
@@ -72,7 +74,7 @@ export const Grid = styled.div`
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .span{
+    span{
         font-size: 14px;
         width: 4rem;
         height: 100%;
@@ -89,10 +91,17 @@ export const Grid = styled.div`
         font-size: 1rem;
         text-align: center;
     }
+    .match-name{
+        text-align: left;
+        width: unset;
+        justify-content: flex-start;
+        &:hover{
+            background-color: transparent;
+        }
+    }
     &.first{
         justify-content: flex-start;
         width: 100%;
-        max-width: 260px;
         h2{
             font-size: 1.2rem;
         }
@@ -121,13 +130,15 @@ export const GridLeft = styled.div`
     flex-shrink: 0;
     margin-right: 8px;
     span{
+        width: unset;
         font-size: 12px;
         color: #afafaf !important;
     }
 `
 
 export const GridGroup = styled.div`
+    width: 60%;
     display: flex;
-    justify-content: space-space-around;
+    justify-content: space-around;
     flex-shrink: 0;
 `
